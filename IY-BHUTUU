@@ -1,0 +1,241 @@
+#!/bin/bash
+args="$@"
+command="setup $@"
+function _installer_() {
+clear
+processbar()
+{
+   bar=" 👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️"
+   barlenght=${#bar}
+   i=o
+   while ((i < 100 )); do
+           n=$((i*barlenght / 100 ))
+           printf "\e[00;35m\r[%-${barlenght}s]\e[00m" "${bar:0:n}"
+           ((i += RANDOM%5+2))
+           sleep 0.01
+   done
+echo
+}
+#<<<----------REQUIREMENTS--------->>>
+printf "\e[1;36mChecking requirements\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+sleep 0.2
+printf "\e[1;35m.\e[0m"
+echo
+echo
+processbar
+echo
+echo
+r12() {
+sleep 0.15
+apt install python python2 -y
+apt update && apt upgrade -y
+pip install --upgrade pip
+pip install youtube-dl
+pip install lolcat
+echo
+}
+r12
+printf "\e[1;34mRequirements installed!\e[0m\n"
+echo
+printf "\e[1;32mConfiguring IY-BHUTUU\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m"
+sleep 0.2
+printf "\e[1;32m.\e[0m\n"
+echo
+mkdir -p ~/.config/youtube-dl
+mkdir ~/bin > /dev/null 2>&1
+mkdir ~/storage/shared/Youtube > /dev/null 2>&1
+cat <<- CONF > ~/bin/termux-url-opener
+#!/bin/bash
+psbar()
+{
+   bar=" 👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻❤️👻"
+   barlenght=\${#bar}
+   i=o
+   while ((i < 100 )); do
+           n=\$((i*barlenght / 100 ))
+           printf "\e[00;35m\r[%-\${barlenght}s]\e[00m" "\${bar:0:n}"
+           ((i += RANDOM%5+2))
+           sleep 0.01
+   done
+}
+banner() {
+echo -e "
+                   ██████████
+               ████          ████
+             ██                  ██
+           ██                      ██
+         ██                          ██
+       ▓▓                              ▓▓
+       ██                              ██
+     ██                                  ██
+     ██        ████          ████        ██
+     ██        ██              ██        ██
+     ██        ████          ████        ██
+     ██    ░░░░                  ░░░░    ██
+     ██              ██████              ██
+     ██    ██████              ██████    ██
+     ██        ██              ██        ██
+     ██    ██████              ██████      ██    ██
+     ██                                      ████  ██
+       ██                                          ██
+       ██                                          ██
+         ██                                      ██
+           ██                                    ██
+             ██                              ████
+               ████                      ████
+                   ██████████████████████
+
+<<<[_______________________IY-BHUTUU_______________________}>>>
+AUTHOURED BY:- Suman Kumar ~BHUTUU
+" | lolcat
+}
+banner
+echo ""
+printf "\e[1;33mChoose your format\n"
+echo ""
+echo -e "\e[3;34m" "01: MP3"
+echo -e "\e[3;34m" "02: MP4 {360 pixels}"
+echo -e "\e[3;34m" "03: MP4 {480 pixels}"
+echo -e "\e[3;34m" "04: MP4 {720 pixels}"
+echo -e "\e[3;34m" "05: MP4 {1080 pixels}"
+echo -e "\e[3;34m" "06: MP4 {2160 pixels}"
+echo -e "\e[3;34m" "quit/exit: EXIT IY-BHUTUU"
+command='-no-mtime -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s -f'
+echo ""
+
+while true; do
+printf "\e[1;36mEnter your option==> \e[1;31m"
+read option
+if [[ -z \$option ]]; then
+        printf "\e[1;32m[\e[1;31m!\e[1;32m]\e[1;31mChoose a proper option don't leave it vacant\e[0m\n"
+else
+case \$option in #Make Case list
+        1)
+        psbar
+        echo "\$command 140" > ~/.config/youtube-dl/config
+        youtube-dl \$1
+	break
+	exit 1
+        ;;
+        2)
+        psbar
+        echo "\$command \"best[height<=360]\"" > ~/.config/youtube-dl/config
+        youtube-dl \$1
+	break
+	exit 1
+        ;;
+        3)
+        psbar
+        echo "\$command \"best[height<=480]\"" > ~/.config/youtube-dl/config
+        youtube-dl \$1
+	break
+	exit 1
+        ;;
+        4)
+        psbar
+        echo "\$command \"best[height<=720]\"" > ~/.config/youtube-dl/config
+        youtube-dl \$1
+	break
+	exit 1
+        ;;
+        5)
+        psbar
+        echo "\$command \"best[height<=1080]\"" > ~/.config/youtube-dl/config
+        youtube-dl \$1
+	break
+	exit 1
+        ;;
+        6)
+        psbar
+        echo "\$command \"best[height<=2160]\"" > ~/.config/youtube-dl/config
+        youtube-dl \$1
+	break
+	exit 1
+        ;;
+quit|exit)
+        printf "\e[1;33mEXITING\e[0m"
+sleep 0.2
+        printf "\e[1;33m.\e[0m"
+sleep 0.2
+        printf "\e[1;33m.\e[0m"
+sleep 0.2
+        printf "\e[1;33m.\e[0m"
+sleep 0.2
+        printf "\e[1;33m.\e[0m"
+sleep 0.2
+        printf "\e[1;33m.\e[0m"
+sleep 0.2
+        printf "\e[1;33m.\e[0m\n"
+echo
+        break
+        ;;
+       * )
+        printf "\e[1;32m[\e[1;31m!\e[1;32m]\e[1;31mChoose a valid option\e[0m\n"
+esac
+fi
+done
+CONF
+chmod +x ~/bin/termux-url-opener
+echo
+printf "\e[1;32mInstallation completed :) \e[0m\n"
+echo
+}
+function _remover_() {
+printf "\e[1;32mRemoving"
+sleep 0.2
+        printf "\e[1;32m.\e[0m"
+sleep 0.2
+        printf "\e[1;32m.\e[0m"
+sleep 0.2
+        printf "\e[1;32m.\e[0m"
+sleep 0.2
+        printf "\e[1;32m.\e[0m"
+sleep 0.2
+        printf "\e[1;32m.\e[0m"
+sleep 0.2
+        printf "\e[1;32m.\e[0m\n"
+echo
+remv() {
+rm -rf ~/bin/termux-url-opener
+pip uninstall youtube-dl -y
+rm -rf ~/.config/youtube-dl
+}
+remv > /dev/null 2>&1
+printf "\e[1;36mIY-BHUTUU removed successfully\e[0m\n"
+}
+#<<<----------ARGUMENTATIONS---------->>>
+if [[ ${command^^} == 'SETUP -I' || ${command^^} == 'SETUP --INSTALL' ]]; then
+_installer_
+elif [[ ${command^^} == 'SETUP -R' || ${command^^} == 'SETUP --REMOVE' ]]; then
+_remover_
+else
+_installer_
+fi
