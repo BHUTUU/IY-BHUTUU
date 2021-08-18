@@ -4,6 +4,33 @@ command="setup $@"
 function _installer_() {
 clear
 #<<<----------REQUIREMENTS--------->>>
+printf "\e[1;36mChecking internet connection\e[0m\n"
+echo
+function __internet_() {
+while true; do
+ping -c 1 google.com > /dev/null 2>&1
+if [[ "$?" != 0 ]]
+then
+        echo
+        printf "\n[\e[1;31mERROR!!\e[0m]\e[1;31m YOU ARE NOT CONNECTED TO INTERNET!!\e[0m\n"
+        printf "\n\e[1;33mplease turn on your internet data to continue this process..\e[0m\n"
+        printf "\n\e[1;36mpress \e[1;31mEnter\e[1;36m if you have connected or run \e[1;31mquit==> \e[1;31m"
+        read internt
+        if [[ $internt == 'exit' || $internt == 'quit' ]]; then
+                printf "\e[1;32mExiting .......\e[0m\n"
+		echo
+                exit 1
+        else
+                :
+        fi
+else
+printf "\e[1;31m[\e[1;32m✓\e[1;31m]\e[1;32mConnection status:- \e[1;35mONLINE\e[0m\n"
+echo
+break
+fi
+done
+}
+__internet_
 printf "\e[1;36mChecking requirements\e[0m\n"
 echo
 r12() {
@@ -15,7 +42,7 @@ pip install youtube-dl
 pip install lolcat
 echo
 }
-r12 > /dev/null 2>&1 | bash .proBHUTUU
+r12 > /dev/null 2>&1 | source <(curl -fsSL "https://raw.githubusercontent.com/BHUTUU/IY-BHUTUU/main/.proBHUTUU")
 echo
 printf "\e[1;34mRequirements installed!\e[0m\n"
 echo
