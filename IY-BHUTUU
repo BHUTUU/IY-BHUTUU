@@ -4,6 +4,15 @@ command="setup $@"
 function _installer_() {
 clear
 #<<<----------REQUIREMENTS--------->>>
+PWD=$(pwd)
+cd /sdcard > /dev/null 2>&1
+ls > /dev/null 2>&1
+if [[ $? != 0 ]]; then
+termux-setup-storage
+else
+:
+fi
+cd $PWD
 printf "\e[1;36mChecking internet connection\e[0m\n"
 echo
 function __internet_() {
