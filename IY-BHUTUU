@@ -92,32 +92,37 @@ psbar()
 }
 banner() {
 echo -e "
-                   ██████████
-               ████          ████
-             ██                  ██
-           ██                      ██
-         ██                          ██
-       ▓▓                              ▓▓
-       ██                              ██
-     ██                                  ██
-     ██        ████          ████        ██
-     ██        ██              ██        ██
-     ██        ████          ████        ██
-     ██    ░░░░                  ░░░░    ██
-     ██              ██████              ██
-     ██    ██████              ██████    ██
-     ██        ██              ██        ██
-     ██    ██████              ██████      ██    ██
-     ██                                      ████  ██
-       ██                                          ██
-       ██                                          ██
-         ██                                      ██
-           ██                                    ██
-             ██                              ████
-               ████                      ████
-                   ██████████████████████
+▒▒▒▒▒▒█▓▓█▒██▓▓▓██▒█▓▓█
+▒▒▒▒▒█▓▒▒▓█▓▓▓▓▓▓▓█▓▒▒▓█
+▒▒▒▒▒█▓▒▒▓▓▓▓▓▓▓▓▓▓▓▒▒▓█
+▒▒▒▒▒▒█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+▒▒▒▒▒▒▒█▓▓▓▓▓▓▓▓▓▓▓▓▓█
+▒▒▒▒▒▒▒█▓▓█▓▓▓▓▓▓█▓▓▓█
+▒▒▒▒▒▒▒█▓▓██▓▓▓▓▓██▓▓█
+▒▒▒▒▒▒█▓▓▓▓▒▒█▓█▒▒▓▓▓▓█
+▒▒▒▒▒█▓▓▒▒▓▒▒███▒▒▓▒▒▓▓█
+▒▒▒▒▒█▓▓▒▒▓▒▒▒█▒▒▒▓▒▒▓▓█
+▒▒▒▒▒█▓▓▓▓▓▓▒▒▒▒▒▓▓▓▓▓▓█
+▒▒▒▒▒▒█▓▓▓▓▓▓███▓▓▓▓▓▓█
+▒▒▒▒▒▒▒█▓▓▓▓▓▓▓▓▓▓▓▓▓█
+▒▒▒▒▒▒█▓▓▓▓▒▒▒▒▒▒▒▓▓▓▓█
+▒▒▒▒▒█▓▓▓▓▒▒▒▒▒▒▒▒▒▓▓▓▓█
+▒▒▒▒█▓▓▓█▓▒▒▒▒▒▒▒▒▒▓█▓▓▓█
+▒▒██▓▓▓█▓▒▒▒██▒██▒▒▒▓█▓▓▓██
+▒█▓▓▓▓█▓▒▒▒▒█▓█▓█▒▒▒▓█▓▓▓▓█
+█▓██▓▓█▓▒▒▒▒█▒▓▒█▒▒▒▒▓█▓▓██▓█
+█▓▓▓▓█▓▓▒▒▒▒█▓▒▓█▒▒▒▒▓▓█▓▓▓▓█
+▒█▓▓▓█▓▓▒▒▒▒▒█▒█▒▒▒▒▒▓▓█▓▓▓█
+▒▒████▓▓▒▒▒▒▒▒█▒▒▒▒▒▒▓▓████
+▒▒▒▒▒█▓▓▓▒▒▒▒▒▒▒▒▒▒▒▓▓▓█
+▒▒▒▒▒▒█▓▓▓▒▒▒▒▒▒▒▒▒▓▓▓█
+▒▒▒▒▒▒█▓▓▓▓▒▒▒▒▒▒▒▓▓▓▓█
+▒▒▒▒▒▒▒█▓▓▓▓▓█▓█▓▓▓▓▓█
+▒▒▒▒▒▒▒▒█▓▓▓▓▓█▓▓▓▓▓█
+▒▒▒▒▒████▓▓▓▓▓█▓▓▓▓▓████
+▒▒▒▒█▓▓▓▓▓▓▓▓▓█▓▓▓▓▓▓▓▓▓█ 
 
-<<<[_______________________IY-BHUTUU_______________________}>>>
+<<<[______IY-BHUTUU_______}>>>
 AUTHOURED BY:- Suman Kumar ~BHUTUU
 " | lolcat
 }
@@ -131,6 +136,7 @@ echo -e "\e[3;34m" "03: MP4 {480 pixels}"
 echo -e "\e[3;34m" "04: MP4 {720 pixels}"
 echo -e "\e[3;34m" "05: MP4 {1080 pixels}"
 echo -e "\e[3;34m" "06: MP4 {2160 pixels}"
+echo -e "\e[3;34m" "07: MP4 {full hd (origional)}"
 echo -e "\e[3;34m" "quit/exit: EXIT IY-BHUTUU"
 command='-no-mtime -o /data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s -f'
 echo ""
@@ -147,42 +153,49 @@ case \$option in #Make Case list
         echo "\$command 140" > ~/.config/youtube-dl/config
         youtube-dl \$1
 	break
-	exit 1
+	exit 0
         ;;
      02|2)
         psbar
         echo "\$command \"best[height<=360]\"" > ~/.config/youtube-dl/config
         youtube-dl \$1
 	break
-	exit 1
+	exit 0
         ;;
      03|3)
         psbar
         echo "\$command \"best[height<=480]\"" > ~/.config/youtube-dl/config
         youtube-dl \$1
 	break
-	exit 1
+	exit 0
         ;;
      04|4)
         psbar
         echo "\$command \"best[height<=720]\"" > ~/.config/youtube-dl/config
         youtube-dl \$1
 	break
-	exit 1
+	exit 0
         ;;
      05|5)
         psbar
         echo "\$command \"best[height<=1080]\"" > ~/.config/youtube-dl/config
         youtube-dl \$1
 	break
-	exit 1
+	exit 0
         ;;
      06|6)
         psbar
         echo "\$command \"best[height<=2160]\"" > ~/.config/youtube-dl/config
         youtube-dl \$1
 	break
-	exit 1
+	exit 0
+        ;;
+     07|7)
+        psbar
+#        echo "\$command \"webm\"" > ~/.config/youtube-dl/config
+        youtube-dl \$1 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s" -f "webm"
+	break
+	exit 0
         ;;
 quit|exit)
         printf "\e[1;33mEXITING\e[0m"
