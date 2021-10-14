@@ -1,4 +1,5 @@
 #!/bin/bash
+#set -x
 args="$@"
 command="setup $@"
 function _installer_() {
@@ -193,7 +194,10 @@ case \$option in #Make Case list
      07|7)
         psbar
 #        echo "\$command \"webm\"" > ~/.config/youtube-dl/config
-        youtube-dl \$1 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s" -f "webm"
+        youtube-dl -f 22 \$1 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s"
+if [[ \$? != 0 ]]; then
+        youtube-dl -f 18 \$1 -o "/data/data/com.termux/files/home/storage/shared/Youtube/%(title)s.%(ext)s"
+fi
 	break
 	exit 0
         ;;
