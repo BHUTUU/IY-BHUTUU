@@ -46,7 +46,7 @@ echo
 r12() {
 sleep 0.15
 pkg install python python2 -y
-pkg update && apt upgrade -y
+pkg update -y && apt upgrade -y
 pip install --upgrade pip
 pip install youtube-dl
 pip install lolcat
