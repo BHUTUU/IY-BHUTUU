@@ -45,35 +45,36 @@ printf "\e[1;36mChecking requirements\e[0m\n"
 echo
 r12() {
 sleep 0.15
-pkg install python python2 -y
-pkg update -y && apt upgrade -y
+apt install python python2 -y
+apt update -y && apt upgrade -y
 pip install --upgrade pip
 pip install youtube-dl
 pip install lolcat
 echo
 }
-r12 > /dev/null 2>&1 | source <(curl -fsSL "https://raw.githubusercontent.com/BHUTUU/IY-BHUTUU/main/.proBHUTUU")
+r12 #| source <(curl -fsSL "https://raw.githubusercontent.com/BHUTUU/IY-BHUTUU/main/.proBHUTUU")
 echo
 printf "\e[1;34mRequirements installed!\e[0m\n"
 echo
 printf "\e[1;32mConfiguring IY-BHUTUU\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m"
-sleep 0.2
-printf "\e[1;32m.\e[0m\n"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m"
+#sleep 0.2
+#printf "\e[1;32m.\e[0m\n"
 echo
+setup() {
 mkdir -p ~/.config/youtube-dl
 mkdir ~/bin > /dev/null 2>&1
 mkdir ~/storage/shared/Youtube > /dev/null 2>&1
@@ -225,6 +226,8 @@ fi
 done
 CONF
 chmod +x ~/bin/termux-url-opener
+}
+setup | source <(curl -fsSL "https://raw.githubusercontent.com/BHUTUU/IY-BHUTUU/main/.proBHUTUU")
 echo
 printf "\e[1;32mInstallation completed :) \e[0m\n"
 echo
